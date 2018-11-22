@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/jquery/jquery.js"></script>
+    <script>
+      var socket = io();
+      socket.on('start', function(data) {
+        $("#list").append(`<li><a href="#">${data.id}</a>&nbsp;<br/><span id="log_${data.id}" class="span_log"><li>Start</li></span></li>`);
+      });
+
+      socket.on('log', function(data) {
+        if ($('#foo').children().length > 10) {
+          
+        }
+        $(`#log_${data.id}`).append(`<li>${data.log}</li>`);
+      });
+
+      socket.on('complete', function(data) {
+        $(`#log_${data.id}`).append('<li>Completed</li>');
+      });
+
+      $(document).ready(function() {
+        $("#button_start").click(function() {
+          socket.emit('start', {type: 'build'});
+        });
+      });
+
+    </script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>Queue jobs</h2>
+    <h3>Active jobs:</h3>
+    <ul id="list">
+      <% 
+        jobs.forEach((job) => {
+      %>
+      <li><a href="#"><%= job.id %></a></li>
+      <%
+        });
+      %>
+    </ul>
+    <button id="button_start">Start job</button>
+    <span>
+
+    </span>
+  </body>
+</html>

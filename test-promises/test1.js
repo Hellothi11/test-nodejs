@@ -1,17 +1,15 @@
 let promise1 = new Promise(function(resolve, reject) {
-	setTimeout(function() {
-		console.log("hihi");
-		resolve();
-	}, 1000);
+	console.log("quac quac");
+	resolve();
 })
 
-let promise2 = new Promise(function(resolve, reject) {
-	setTimeout(function() {
-		console.log("hoho");
-		//resolve();
-		reject(new Error("hum"));
-	}, 2000);
-})
+// let promise2 = new Promise(function(resolve, reject) {
+// 	setTimeout(function() {
+// 		console.log("hoho");
+// 		//resolve();
+// 		reject(new Error("hum"));
+// 	}, 2000);
+// })
 
 // Promise.all([promise1, promise2])
 // .then(() => {
@@ -23,6 +21,13 @@ let promise2 = new Promise(function(resolve, reject) {
 
 promise1
 .then(() => {
+	console.log("hihi")
+})
+
+console.log("kho qua ban oi");
+
+/*promise1
+.then(() => {
 	return promise2;
 })
 .catch((err) => {
@@ -33,4 +38,4 @@ promise1
 })
 .catch((err) => {
 	console.log("3");
-})
+})*/

@@ -1,14 +1,23 @@
 {
   "name": "test-worker",
-  "version": "1.0.0",
-  "description": "",
-  "main": "test1.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./bin/www"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "kue": "^0.11.6"
+    "axios": "^0.18.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jquery": "^3.3.1",
+    "kue": "^0.11.6",
+    "kue-ui": "^0.1.0",
+    "moment": "^2.22.2",
+    "morgan": "~1.9.0",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1"
   }
 }
